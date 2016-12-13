@@ -24,6 +24,7 @@ var longestRun = function (string) {
       }
     } else if(repeatedChars[0] !== 'empty') {
       repeatedChars[1] = i;
+      console.log('repeated ', repeatedChars, 'longest ', longestRepeatedChar);
       if(repeatedChars[1] - repeatedChars[0] > longestRepeatedChar[1] - longestRepeatedChar[0]) {
         longestRepeatedChar[0] = repeatedChars[0];
         longestRepeatedChar[1] = repeatedChars[1];
