@@ -12,11 +12,18 @@
   *
   */
 var deepEquals = function(apple, orange) {
+  if(Object.keys(apple).length !== Object.keys(orange).length) {
+    return false;
+  }
   for(var key in apple) {
-    if(typeof key === 'object' && typeof orange[key] === 'object') {
+    if(typeof apple[key] === 'object' && typeof orange[key] === 'object') {
       deepEquals(apple[key], orange[key]);
     } else if(apple[key] !== orange[key]) {
-      
+      return false;
     }
+    console.log('apple ', apple[key], 'orange ', orange[key]);
   }
+  return true;
 };
+console.log(deepEquals({a:1, b: {c:3}},{a:1, b: {c:3}}));
+console.log(deepEquals({a:1, b: {c:5}},{a:1, b: {c:6}}));
