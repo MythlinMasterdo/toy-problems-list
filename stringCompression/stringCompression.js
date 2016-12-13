@@ -2,7 +2,7 @@
 //"aaabbbbcc" -> "a3b4c2"
 
 var stringCompression = function(str) {
-  var splitStr = str.splice("");
+  var splitStr = str.split("");
   var compressedString = {};
   var finalStr = "";
   for(var i = 0; i < splitStr.length; i++) {
@@ -13,6 +13,8 @@ var stringCompression = function(str) {
     }
   }
   for(var key in compressedString) {
-    
+    finalStr = finalStr += key += compressedString[key];
   }
+  return finalStr;
 }
+console.log(stringCompression("aaabbbbcc"));
