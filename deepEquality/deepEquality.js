@@ -17,11 +17,10 @@ var deepEquals = function(apple, orange) {
   }
   for(var key in apple) {
     if(typeof apple[key] === 'object' && typeof orange[key] === 'object') {
-      deepEquals(apple[key], orange[key]);
+      return deepEquals(apple[key], orange[key]);
     } else if(apple[key] !== orange[key]) {
       return false;
     }
-    console.log('apple ', apple[key], 'orange ', orange[key]);
   }
   return true;
 };
