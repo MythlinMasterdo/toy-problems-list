@@ -43,13 +43,14 @@ BinarySearchTree.prototype.depthFirst = function(cb) {
 BinarySearchTree.prototype.contains = function(value, rootNode) {
   if(rootNode === undefined) {
     rootNode = {};
-    rootNode.root = this.root;
-    rootNode.left = this.left;
-    rootNode.right = this.right;
+    rootNode.value = this.root.value;
+    rootNode.left = this.root.left;
+    rootNode.right = this.root.right;
   }
+  console.log('test ', this.root.value);
   if(rootNode.value === value) {
     return true;
-  } else if(value > rootNode.root) {
+  } else if(value > rootNode.value) {
     if(rootNode.right === null) {
       return false;
     } else {
@@ -74,4 +75,4 @@ var bst = new BinarySearchTree();
 bst.insert(5);
 bst.insert(4);
 bst.insert(7);
-bst.contains(7);
+console.log(bst.contains(7));
