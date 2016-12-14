@@ -30,13 +30,19 @@ BinarySearchTree.prototype.insert = function(val) {
   }
 }
 
-BinarySearchTree.prototype.depthFirst = function(cb) {
-  cb(this.value);
-  if(this.left !== null) {
-    return this.left.depthFirst(cb);
+BinarySearchTree.prototype.depthFirst = function(cb, rootNode) {
+  if(rootNode === undefined) {
+    rootNode = {};
+    rootNode.value = this.root.value;
+    rootNode.left = this.root.left;
+    rootNode.right = this.root.right;
   }
-  if(this.right !== null) {
-    return this.right.depthFirst(cb);
+  cb(rootNode.value);
+  if(rootNode.left !== null) {
+    return this.depthFirst(cb, rootNode.left);
+  }
+  if(rootNode.right !== null) {
+    return this.depthFirst(cb, rootNode.right);
   }
 }
 
@@ -76,3 +82,6 @@ bst.insert(5);
 bst.insert(4);
 bst.insert(7);
 console.log(bst.contains(7));
+bst.depthFirst(function() {
+  console.log('hello');
+});
