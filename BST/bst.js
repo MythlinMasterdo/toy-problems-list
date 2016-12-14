@@ -1,4 +1,4 @@
-var BinarySearchTree = function(val) {
+var BinarySearchTree = function() {
   this.root = null;
 }
 
@@ -30,8 +30,28 @@ BinarySearchTree.prototype.insert = function(val) {
   }
 }
 
+BinarySearchTree.prototype.depthFirst = function(cb) {
+  cb(this.value);
+  if(this.left !== null) {
+    this.left.depthFirst(cb);
+  }
+  if(this.right !== null) {
+    this.right.depthFirst(cb);
+  }
+}
+
+BinarySearchTree.prototype.contains = function(value) {
+  
+}
+
 var Node = function(val) {
   this.right = null;
   this.left = null;
   this.value = val;
 }
+
+var bst = new BinarySearchTree();
+bst.insert(5);
+bst.insert(4);
+bst.insert(7);
+bst.depthFirst();
