@@ -41,7 +41,21 @@ BinarySearchTree.prototype.depthFirst = function(cb) {
 }
 
 BinarySearchTree.prototype.contains = function(value) {
-  
+  if(this.root === value) {
+    return true;
+  } else if(value > this.root) {
+    if(this.right === null) {
+      return false;
+    } else {
+      return this.right.contains(value);
+    }
+  } else {
+    if(this.left === null) {
+      return false;
+    } else {
+      return this.left.contains(value);
+    }
+  }
 }
 
 var Node = function(val) {
