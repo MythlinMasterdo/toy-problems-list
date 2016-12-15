@@ -2,5 +2,6 @@
 //compute the result input: 2*3+5/6*3+15 output: 23.5
 
 var calculator = function(equation) {
-  
+  return equation;
 }
+console.log(calculator(2*3+5/6*3+15));
