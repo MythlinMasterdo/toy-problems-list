@@ -7,13 +7,16 @@ var countOfTwos = function(num) {
   }
   var numOfTwos = 0;
   var currentNum;
-  for(var i = 2; i < num; i++) {
+  for(var i = 2; i <= num; i++) {
     currentNum = i.toString().split('');
-    if(currentNum.indexOf(2) !== -1) {
+    if(currentNum.indexOf('2') !== -1) {
       for(var j = 0; j < currentNum.length; j++) {
-        
+        if(currentNum[j] === '2') {
+          numOfTwos++;
+        }
       }
     }
   }
+  return numOfTwos;
 }
-countOfTwos(5);
+console.log(countOfTwos(25));
